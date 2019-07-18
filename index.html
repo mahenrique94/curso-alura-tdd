@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Alura Saude</title>
+        <link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./assets/css/normalize.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <header class="mb-5">
+            <nav class="navbar navbar-light bg-success">
+                <a class="navbar-brand h1 mb-0" href="#">Alura Saude</a>
+            </nav>
+        </header>
+        <main class="container">
+            <form class="mb-5 js-form">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="nome">Nome</label>
+                        <input class="form-control js-nome" id="nome" maxlength="120" name="nome" required type="text" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="idade">Idade</label>
+                        <input class="form-control js-idade" id="idade" min="0" max="100" name="idade" required type="number" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="sexo">Sexo</label>
+                        <select class="form-control js-sexo" id="sexo" name="sexo" required>
+                            <option></option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="peso">Peso</label>
+                        <input class="form-control js-peso" id="peso" min="0" name="peso" required step="0.01" type="number" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="altura">Altura</label>
+                        <input class="form-control js-altura" id="altura" min="0" name="altura" required step="0.01" type="number" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="imc">IMC</label>
+                        <input class="form-control js-imc" id="imc" min="0" name="imc" readonly step="0.01" type="number" />
+                    </div>
+                </div>
+                <button class="btn btn-success">Salvar</button>
+                <button class="btn btn-primary js-importar" type="button">Importar Dados</button>
+            </form>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Altura</th>
+                        <th scope="col">IMC</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="js-corpoTabela"></tbody>
+            </table>
+        </main>
+        <script src="./assets/js/Paciente.js"></script>
+        <script src="./assets/js/Store.js"></script>
+        <script src="./assets/js/utils.js"></script>
+        <script src="./assets/js/view.js"></script>
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>
