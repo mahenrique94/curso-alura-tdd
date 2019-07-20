@@ -11,4 +11,8 @@ const buscarCampos = () => ({
     imc: buscarElemento('imc')
 })
 
-const calcularIMC = (peso, altura) => (peso / Math.pow(altura, 2)).toFixed(2)
+export {
+    buscarElemento,
+    buscarForm,
+    buscarCampos
+}

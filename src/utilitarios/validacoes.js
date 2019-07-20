@@ -1,3 +1,5 @@
+import { buscarElemento } from './html'
+
 const atributosParaValidar = [
     'min',
     'max',
@@ -13,7 +15,7 @@ const validaObrigatorio = valor => {
     return 'Preenchiento obrigatório'
 }
 
-const validaMaximo = (valor, maximo) => {    
+const validaMaximo = (valor, maximo) => {
     if (parseFloat(valor || 0) < maximo) {
         return ''
     }
@@ -78,7 +80,7 @@ const validaCampo = (campo, tipoValidacoes) => {
         campo.classList.add('is-valid')
         campo.nextElementSibling.classList.add('d-none')
         campo.nextElementSibling.textContent = ''
-    }    
+    }
 }
 
 const validaBotao = formulario => {
@@ -90,4 +92,10 @@ const validaBotao = formulario => {
             botao.setAttribute('disabled', true)
         }
     }
+}
+
+export {
+    atributosParaValidar,
+    validaCampo,
+    validaBotao
 }

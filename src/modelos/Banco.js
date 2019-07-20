@@ -17,3 +17,8 @@ class Banco {
     }
 
 }
+
+export default Banco
+export {
+    CHAVE_DB
+}

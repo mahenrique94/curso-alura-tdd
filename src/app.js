@@ -1,3 +1,8 @@
+import { buscarForm, buscarCampos, buscarElemento } from './utilitarios/html'
+import { atributosParaValidar, validaBotao, validaCampo } from './utilitarios/validacoes'
+import { adicionarPaciente, limpaFormulario, init, atualizarIMC } from './utilitarios/pagina'
+import Paciente from './modelos/Paciente'
+
 const form = buscarForm()
 const campos = buscarCampos()
 const importar = buscarElemento('importar')
