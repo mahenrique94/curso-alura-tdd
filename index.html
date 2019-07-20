@@ -19,42 +19,52 @@
             <form class="mb-5 js-form">
                 <div class="form-row">
                     <div class="form-group col">
-                        <label for="nome">Nome</label>
+                        <label for="nome">Nome*</label>
                         <input class="form-control js-nome" id="nome" maxlength="120" name="nome" required type="text" />
+                        <span class="invalid-feedback d-none"></span>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="idade">Idade</label>
+                    <div class="form-group col-6">
+                        <label for="idade">Idade*</label>
                         <input class="form-control js-idade" id="idade" min="0" max="100" name="idade" required type="number" />
+                        <span class="invalid-feedback d-none"></span>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="sexo">Sexo</label>
+                    <div class="form-group col-6">
+                        <label for="sexo">Sexo*</label>
                         <select class="form-control js-sexo" id="sexo" name="sexo" required>
                             <option></option>
                             <option value="Feminino">Feminino</option>
                             <option value="Masculino">Masculino</option>
                         </select>
+                        <span class="invalid-feedback d-none"></span>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="peso">Peso</label>
-                        <input class="form-control js-peso" id="peso" min="0" name="peso" required step="0.01" type="number" />
+                    <div class="form-group col-6 col-md-4">
+                        <label for="peso">Peso*</label>
+                        <input class="form-control js-peso" id="peso" min="0" max="200" name="peso" required step="0.01" type="number" />
+                        <span class="invalid-feedback d-none"></span>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="altura">Altura</label>
-                        <input class="form-control js-altura" id="altura" min="0" name="altura" required step="0.01" type="number" />
+                    <div class="form-group col-6 col-md-4">
+                        <label for="altura">Altura*</label>
+                        <input class="form-control js-altura" id="altura" min="0" max="2.5" name="altura" required step="0.01" type="number" />
+                        <span class="invalid-feedback d-none"></span>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-12 col-md-4">
                         <label for="imc">IMC</label>
-                        <input class="form-control js-imc" id="imc" min="0" name="imc" readonly step="0.01" type="number" />
+                        <input class="form-control js-imc" id="imc" name="imc" readonly type="number" />
                     </div>
                 </div>
-                <button class="btn btn-success">Salvar</button>
+                <div class="row mb-1">
+                    <div class="col">
+                        <span class="text-muted">* campos obrigatórios</span>
+                    </div>
+                </div>
+                <button class="btn btn-success js-salvar" disabled>Salvar</button>
                 <button class="btn btn-primary js-importar" type="button">Importar Dados</button>
             </form>
-            <table class="table table-hover table-striped">
+            <table class="table table-hover table-striped table-responsive-sm">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -70,10 +80,11 @@
                 <tbody class="js-corpoTabela"></tbody>
             </table>
         </main>
+        <script src="./assets/js/utilitarios.js"></script>
+        <script src="./assets/js/Banco.js"></script>
         <script src="./assets/js/Paciente.js"></script>
-        <script src="./assets/js/Store.js"></script>
-        <script src="./assets/js/utils.js"></script>
-        <script src="./assets/js/view.js"></script>
+        <script src="./assets/js/pagina.js"></script>
+        <script src="./assets/js/validacoes.js"></script>
         <script src="./assets/js/app.js"></script>
     </body>
 </html>

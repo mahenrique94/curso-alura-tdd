@@ -1,15 +1,15 @@
 const corpoTabela = buscarElemento('corpoTabela')
 const pacientesSalvos = localStorage.getItem(CHAVE_DB)
 const pacientesConvertidos = pacientesSalvos ? JSON.parse(pacientesSalvos).map(paciente => new Paciente(...Object.values(paciente))) : undefined
-const store = new Store(pacientesConvertidos)
+const banco = new Banco(pacientesConvertidos)
 
 const adicionarPaciente = paciente => {
-    store.add(paciente)
+    banco.add(paciente)
     atualizarTabela()
 }
 
 const atualizarTabela = () => {
-    corpoTabela.innerHTML = store.pacientes.map((paciente, indice) => `
+    corpoTabela.innerHTML = banco.pacientes.map((paciente, indice) => `
         <tr class="table-${paciente.pegaCondicaoTabela()}">
             <td>${indice + 1}</td>
             <td>${paciente.nome}</td>
@@ -40,6 +40,6 @@ const limpaFormulario = campos => Object.values(campos).forEach(campo => campo.v
 const init = () => atualizarTabela()
 
 const removerPaciente = indice => {
-    store.remove(indice)
+    banco.remove(indice)
     atualizarTabela()
 }

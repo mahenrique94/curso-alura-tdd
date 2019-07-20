@@ -1,12 +1,12 @@
 const CHAVE_DB = 'AluraSaude'
 
-class Store {
+class Banco {
 
     constructor(pacientes = []) {
         this.pacientes = pacientes
     }
 
-    add(paciente) {
+    adiciona(paciente) {
         this.pacientes.push(paciente)
         localStorage.setItem(CHAVE_DB, JSON.stringify(this.pacientes))
     }
