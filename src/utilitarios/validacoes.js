@@ -95,6 +95,11 @@ const validaBotao = formulario => {
 }
 
 export {
+    validaObrigatorio,
+    validaMaximo,
+    validaMinimo,
+    validaTamanho,
+    validaTipo,
     atributosParaValidar,
     validaCampo,
     validaBotao

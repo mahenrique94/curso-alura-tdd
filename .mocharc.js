@@ -1,6 +1,7 @@
 module.exports = {
     require: [
-        '@babel/register'
+        '@babel/register',
+        'chai/register-expect'
     ],
     spec: './src/**/*.spec.js'
 }

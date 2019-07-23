@@ -1,3 +1,5 @@
+import { calcularIMC } from '../utilitarios/imc'
+
 class Paciente {
     constructor(nome, idade, sexo, peso, altura, imc) {
         this.nome = nome
@@ -5,7 +7,7 @@ class Paciente {
         this.sexo = sexo
         this.peso = peso
         this.altura = altura
-        this.imc = imc
+        this.imc = imc ? imc : calcularIMC(peso, altura)
     }
 
     get situacao() {

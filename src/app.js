@@ -1,6 +1,7 @@
 import { buscarForm, buscarCampos, buscarElemento } from './utilitarios/html'
 import { atributosParaValidar, validaBotao, validaCampo } from './utilitarios/validacoes'
 import { adicionarPaciente, limpaFormulario, init, atualizarIMC } from './utilitarios/pagina'
+import { importarPacientes } from './utilitarios/integracao'
 import Paciente from './modelos/Paciente'
 
 const form = buscarForm()
@@ -43,8 +44,7 @@ if (form) {
 
 if (importar) {
     importar.addEventListener('click', () => {
-        fetch('http://www.mocky.io/v2/5d2fd6193400003eb664d99a')
-            .then(resp => resp.json())
+        importarPacientes()
             .then(json => {
                 json.result.forEach(registro => {
                     const pacienteImportado = new Paciente(...Object.values(registro))
