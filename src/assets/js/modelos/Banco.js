@@ -6,6 +6,12 @@ class Banco {
         this.pacientes = pacientes
     }
 
+    connect() {
+        const pacientesSalvos = localStorage.getItem(CHAVE_DB)
+        const pacientesConvertidos = pacientesSalvos ? JSON.parse(pacientesSalvos).map(paciente => new Paciente(...Object.values(paciente))) : []
+        this.pacientes = pacientesConvertidos
+    }
+
     adiciona(paciente) {
         this.pacientes.push(paciente)
         localStorage.setItem(CHAVE_DB, JSON.stringify(this.pacientes))
@@ -16,9 +22,4 @@ class Banco {
         localStorage.setItem(CHAVE_DB, JSON.stringify(this.pacientes))
     }
 
-}
-
-export default Banco
-export {
-    CHAVE_DB
 }

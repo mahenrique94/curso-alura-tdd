@@ -1,9 +1,3 @@
-import { buscarForm, buscarCampos, buscarElemento } from './utilitarios/html'
-import { atributosParaValidar, validaBotao, validaCampo } from './utilitarios/validacoes'
-import { adicionarPaciente, limpaFormulario, init, atualizarIMC } from './utilitarios/pagina'
-import { importarPacientes } from './utilitarios/integracao'
-import Paciente from './modelos/Paciente'
-
 const form = buscarForm()
 const campos = buscarCampos()
 const importar = buscarElemento('importar')
@@ -31,11 +25,8 @@ if (form) {
         event.preventDefault()
         const novoPaciente = new Paciente(
             campos.nome.value,
-            campos.idade.value,
-            campos.sexo.value,
             campos.peso.value,
-            campos.altura.value,
-            campos.imc.value
+            campos.altura.value
         )
         adicionarPaciente(novoPaciente)
         limpaFormulario(campos)

@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Alura Saude</title>
+        <link rel="stylesheet" href="./assets/css/normalize.css">
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
         <header class="mb-5">
@@ -18,22 +21,6 @@
                     <div class="form-group col">
                         <label for="nome">Nome*</label>
                         <input class="form-control js-nome" id="nome" maxlength="120" name="nome" required type="text" />
-                        <span class="invalid-feedback d-none"></span>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-6">
-                        <label for="idade">Idade*</label>
-                        <input class="form-control js-idade" id="idade" min="0" max="100" name="idade" required type="number" />
-                        <span class="invalid-feedback d-none"></span>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="sexo">Sexo*</label>
-                        <select class="form-control js-sexo" id="sexo" name="sexo" required>
-                            <option></option>
-                            <option value="Feminino">Feminino</option>
-                            <option value="Masculino">Masculino</option>
-                        </select>
                         <span class="invalid-feedback d-none"></span>
                     </div>
                 </div>
@@ -66,8 +53,6 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Idade</th>
-                        <th scope="col">Sexo</th>
                         <th scope="col">Peso</th>
                         <th scope="col">Altura</th>
                         <th scope="col">IMC</th>
@@ -77,5 +62,13 @@
                 <tbody class="js-corpoTabela"></tbody>
             </table>
         </main>
+        <script src="./assets/js/utilitarios/imc.js"></script>
+        <script src="./assets/js/modelos/Banco.js"></script>
+        <script src="./assets/js/modelos/Paciente.js"></script>
+        <script src="./assets/js/utilitarios/html.js"></script>
+        <script src="./assets/js/utilitarios/integracao.js"></script>
+        <script src="./assets/js/utilitarios/pagina.js"></script>
+        <script src="./assets/js/utilitarios/validacoes.js"></script>
+        <script src="./assets/js/app.js"></script>
     </body>
 </html>

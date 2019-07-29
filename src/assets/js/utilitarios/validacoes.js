@@ -1,5 +1,3 @@
-import { buscarElemento } from './html'
-
 const atributosParaValidar = [
     'min',
     'max',
@@ -8,35 +6,35 @@ const atributosParaValidar = [
     'type'
 ]
 
-const validaObrigatorio = valor => {
+const campoEstaPreenchido = valor => {
     if (valor.trim()) {
         return ''
     }
     return 'Preenchiento obrigatório'
 }
 
-const validaMaximo = (valor, maximo) => {
+const numeroMaiorQueValorMaximo = (valor, maximo) => {
     if (parseFloat(valor || 0) < maximo) {
         return ''
     }
     return `Valor deve ser menor que ${maximo}`
 }
 
-const validaMinimo = (valor, minimo) => {
+const numeroMenorQueValorMinimo = (valor, minimo) => {
     if (parseFloat(valor || 0) > parseFloat(minimo)) {
         return ''
     }
     return `Valor deve ser maior que ${minimo}`
 }
 
-const validaTamanho = (valor, tamanho) => {
+const textoMaiorQueValorMaximo = (valor, tamanho) => {
     if (valor.trim().length < tamanho) {
         return ''
     }
     return `Quantidade de letras deve ser menor que ${tamanho}`
 }
 
-const validaTipo = (valor, tipo) => {
+const valorEhDoTipoCerto = (valor, tipo) => {
     const tiposDeTexto = {
         number: /([aAá-úzZ])/g,
         text: /([\d])/g
@@ -55,11 +53,11 @@ const validaTipo = (valor, tipo) => {
 }
 
 const validacoes = {
-    required: validaObrigatorio,
-    min: validaMinimo,
-    max: validaMaximo,
-    maxlength: validaTamanho,
-    type: validaTipo
+    required: campoEstaPreenchido,
+    min: numeroMenorQueValorMinimo,
+    max: numeroMaiorQueValorMaximo,
+    maxlength: textoMaiorQueValorMaximo,
+    type: valorEhDoTipoCerto
 }
 
 const validaCampo = (campo, tipoValidacoes) => {
@@ -92,15 +90,4 @@ const validaBotao = formulario => {
             botao.setAttribute('disabled', true)
         }
     }
-}
-
-export {
-    validaObrigatorio,
-    validaMaximo,
-    validaMinimo,
-    validaTamanho,
-    validaTipo,
-    atributosParaValidar,
-    validaCampo,
-    validaBotao
 }
