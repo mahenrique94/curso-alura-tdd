@@ -1,10 +1,14 @@
-const buscarElemento = nome => document.querySelector(`.js-${nome}`)
+export default class Html {
 
-const buscarForm = () => buscarElemento('form')
+    static buscarElemento = nome => document.querySelector(`.js-${nome}`)
 
-const buscarCampos = () => ({
-    nome: buscarElemento('nome'),
-    peso: buscarElemento('peso'),
-    altura: buscarElemento('altura'),
-    imc: buscarElemento('imc')
-})
+    static buscarForm = () => Html.buscarElemento('form')
+
+    static buscarCampos = () => ({
+        nome: Html.buscarElemento('nome'),
+        peso: Html.buscarElemento('peso'),
+        altura: Html.buscarElemento('altura'),
+        imc: Html.buscarElemento('imc')
+    })
+
+}

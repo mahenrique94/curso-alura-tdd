@@ -1,10 +1,4 @@
-const atributosParaValidar = [
-    'min',
-    'max',
-    'maxlength',
-    'required',
-    'type'
-]
+import Html from './Html.js'
 
 const campoEstaPreenchido = valor => {
     if (valor.trim()) {
@@ -60,34 +54,38 @@ const validacoes = {
     type: valorEhDoTipoCerto
 }
 
-const validaCampo = (campo, tipoValidacoes) => {
-    let mensagemValidacao = ''
-    const ehInvalido = tipoValidacoes.some(tipo => {
-        const tipoValidacao = validacoes[tipo]
-        const tipoValor = campo.getAttribute(tipo)
-        mensagemValidacao = tipoValidacao(campo.value, tipoValor)
-        return !!mensagemValidacao
-    })
-    if (ehInvalido) {
-        campo.classList.remove('is-valid')
-        campo.classList.add('is-invalid')
-        campo.nextElementSibling.classList.remove('d-none')
-        campo.nextElementSibling.textContent = mensagemValidacao
-    } else {
-        campo.classList.remove('is-invalid')
-        campo.classList.add('is-valid')
-        campo.nextElementSibling.classList.add('d-none')
-        campo.nextElementSibling.textContent = ''
-    }
-}
+export default class Validacao {
 
-const validaBotao = formulario => {
-    const botao = buscarElemento('salvar')
-    if (botao) {
-        if (formulario.checkValidity()) {
-            botao.removeAttribute('disabled')
+    static validaCampo = (campo, tipoValidacoes) => {
+        let mensagemValidacao = ''
+        const ehInvalido = tipoValidacoes.some(tipo => {
+            const tipoValidacao = validacoes[tipo]
+            const tipoValor = campo.getAttribute(tipo)
+            mensagemValidacao = tipoValidacao(campo.value, tipoValor)
+            return !!mensagemValidacao
+        })
+        if (ehInvalido) {
+            campo.classList.remove('is-valid')
+            campo.classList.add('is-invalid')
+            campo.nextElementSibling.classList.remove('d-none')
+            campo.nextElementSibling.textContent = mensagemValidacao
         } else {
-            botao.setAttribute('disabled', true)
+            campo.classList.remove('is-invalid')
+            campo.classList.add('is-valid')
+            campo.nextElementSibling.classList.add('d-none')
+            campo.nextElementSibling.textContent = ''
         }
     }
+
+    static validaBotao = formulario => {
+        const botao = Html.buscarElemento('salvar')
+        if (botao) {
+            if (formulario.checkValidity()) {
+                botao.removeAttribute('disabled')
+            } else {
+                botao.setAttribute('disabled', true)
+            }
+        }
+    }
+
 }

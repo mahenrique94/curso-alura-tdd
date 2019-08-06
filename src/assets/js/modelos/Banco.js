@@ -1,12 +1,14 @@
+import Paciente from './Paciente.js'
+
 const CHAVE_DB = 'AluraSaude'
 
-class Banco {
+export default class Banco {
 
     constructor(pacientes = []) {
         this.pacientes = pacientes
     }
 
-    connect() {
+    conectar() {
         const pacientesSalvos = localStorage.getItem(CHAVE_DB)
         const pacientesConvertidos = pacientesSalvos ? JSON.parse(pacientesSalvos).map(paciente => new Paciente(...Object.values(paciente))) : []
         this.pacientes = pacientesConvertidos
