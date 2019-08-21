@@ -5,63 +5,97 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Alura Saude</title>
-        <link rel="stylesheet" href="./assets/css/normalize.css">
-        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/normalize.css" />
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./assets/css/sweetalert2.min.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
     <body>
         <header class="mb-5">
-            <nav class="navbar navbar-light bg-success">
-                <a class="navbar-brand h1 mb-0" href="#">Alura Saude</a>
+            <nav class="navbar navbar-dark bg-success">
+                <a class="navbar-brand h1 mb-0" href="#"><i class="fas fa-heartbeat"></i>Alura Saúde</a>
             </nav>
         </header>
         <main class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Controle de pacientes</li>
+                </ol>
+            </nav>
             <form class="mb-5 js-form">
-                <div class="form-row">
-                    <div class="form-group col">
+                <div class="form-row js-form">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="nome">Nome*</label>
                         <input class="form-control js-nome" id="nome" maxlength="120" name="nome" required type="text" />
                         <span class="invalid-feedback d-none"></span>
                     </div>
+                    <div class="form-group col-sm-6 col-md-3">
+                        <label for="cpf">CPF*</label>
+                        <input class="form-control js-cpf" id="cpf" maxlength="14" name="cpf" required type="text" />
+                        <span class="invalid-feedback d-none"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3">
+                        <label for="dataNascimento">Data de Nascimento*</label>
+                        <input
+                            class="form-control js-dataNascimento"
+                            id="dataNascimento"
+                            maxlength="10"
+                            name="dataNascimento"
+                            required
+                            type="text"
+                        />
+                        <span class="invalid-feedback d-none"></span>
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-6 col-md-4">
-                        <label for="peso">Peso*</label>
-                        <input class="form-control js-peso" id="peso" min="0" max="200" name="peso" required step="0.01" type="number" />
+                    <div class="form-group col">
+                        <label for="estadoDoPaciente">Estado do paciente*</label>
+                        <textarea
+                            class="form-control js-estadoDoPaciente"
+                            id="estadoDoPaciente"
+                            name="estadoDoPaciente"
+                            required
+                        ></textarea>
                         <span class="invalid-feedback d-none"></span>
-                    </div>
-                    <div class="form-group col-6 col-md-4">
-                        <label for="altura">Altura*</label>
-                        <input class="form-control js-altura" id="altura" min="0" max="2.5" name="altura" required step="0.01" type="number" />
-                        <span class="invalid-feedback d-none"></span>
-                    </div>
-                    <div class="form-group col-12 col-md-4">
-                        <label for="imc">IMC</label>
-                        <input class="form-control js-imc" id="imc" name="imc" readonly type="number" />
                     </div>
                 </div>
                 <div class="row mb-1">
-                    <div class="col">
+                    <div class="col text-right">
                         <span class="text-muted">* campos obrigatórios</span>
                     </div>
                 </div>
-                <button class="btn btn-success js-salvar" disabled>Salvar</button>
-                <button class="btn btn-primary js-importar" type="button">Importar Dados</button>
+                <div class="row">
+                    <div class="col text-right">
+                        <button class="btn btn-success js-salvar" type="submit">Registrar atendimento</button>
+                    </div>
+                </div>
             </form>
             <table class="table table-hover table-striped table-responsive-sm">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Peso</th>
-                        <th scope="col">Altura</th>
-                        <th scope="col">IMC</th>
-                        <th scope="col"></th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Situação</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody class="js-corpoTabela"></tbody>
             </table>
         </main>
-        <script src="./assets/js/main.js" type="module"></script>
+        <script src="./assets/js/jquery-3.4.1.min.js"></script>
+        <script src="./assets/js/jquery.mask.min.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/system.min.js"></script>
+        <script src="./assets/js/transform.js"></script>
+        <script src="./assets/js/babel-transform.js"></script>
+        <script src="./assets/js/sweetalert2.min.js"></script>
+        <script src="./assets/js/fontawesome-5.10.1.all.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+        <script>
+            System.import('./app/main.js')
+        </script>
     </body>
 </html>

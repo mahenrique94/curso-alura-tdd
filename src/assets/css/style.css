@@ -1,3 +1,11 @@
 table thead tr th:last-child {
-    width: 100px;
+    width: 220px;
+}
+
+table tbody tr td:last-child {
+    text-align: center;
+}
+
+textarea {
+    resize: none;
 }
