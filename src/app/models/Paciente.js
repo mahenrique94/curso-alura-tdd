@@ -1,8 +1,10 @@
 import CPF from '../utils/CPF.js'
 import Data from '../utils/Data.js'
 
+import { maquinaDeEstado, traducoesPaciente, situacoesPaciente } from '../constants/situacoesPaciente.js'
+
 export default class Paciente {
-    constructor(nome = '', cpf = '', dataNascimento = '', estado = '', situacao = 'Aguardando triagem') {
+    constructor(nome = '', cpf = '', dataNascimento = '', estado = '', situacao = maquinaDeEstado.AGUARDANDO_TRIAGEM) {
         this._nome = nome
         this._cpf = new CPF(cpf)
         this._dataNascimento = new Data(dataNascimento)
@@ -53,7 +55,23 @@ export default class Paciente {
             cpf: this.cpf.value,
             dataNascimento: this.dataNascimento.value,
             estado: this.estado,
-            situacao: this.situacao
+            situacao: traducoesPaciente[this.situacao.estadoAtual]
+        }
+    }
+
+    enviarParaAProximaSituacao(proximaSituacaoEsperada) {
+        if (proximaSituacaoEsperada) {
+            if (this.situacao.proximoEstado === proximaSituacaoEsperada) {
+                this._situacao = maquinaDeEstado[this.situacao.proximoEstado]
+                return true
+            }
+            return false
+        } else {
+            if ([situacoesPaciente.EM_ATENDIMENTO, situacoesPaciente.EM_MEDICACAO, situacoesPaciente.EM_TRIAGEM].includes(this.situacao.estadoAtual)) {
+                this._situacao = maquinaDeEstado[this.situacao.proximoEstado]
+                return true
+            }
+            return false
         }
     }
 }

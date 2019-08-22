@@ -26,6 +26,14 @@ export default class PacienteView {
             )
             novoPaciente(this.lidarComPacienteCriado, this.lidarComPacienteInvalido)
         })
+
+        const novoPaciente = this._pacienteController.criaNovoPaciente(
+            'Matheus Castiglioni',
+            '367.872.198-22',
+            '25/05/1994',
+            'Fechou a unha na porta do carro'
+        )
+        novoPaciente(this.lidarComPacienteCriado, this.lidarComPacienteInvalido)
     }
 
     lidarComPacienteCriado(novoPaciente) {
