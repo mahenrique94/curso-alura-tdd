@@ -15,7 +15,7 @@ export default class Data {
         return !!this.value && this.value.trim().length === 10
     }
 
-    getAge() {
+    calcularIdade() {
         return new Date().getFullYear() - this.date.getFullYear()
     }
 }
